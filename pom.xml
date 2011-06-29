@@ -7,7 +7,8 @@
 	<name>jacoco-integration-testcase</name>
 	
 	<properties>
-	  	<arquillian.version>1.0.0.CR1</arquillian.version>
+	  	<arquillian.version>1.0.0.Final-SNAPSHOT</arquillian.version>
+        <arquillian.jboss.version>1.0.0.CR1</arquillian.jboss.version>
 	  	<shrinkwrap.version>1.0.0-beta-3</shrinkwrap.version>
 	  	<jboss.version>6.0.0.Final</jboss.version>
 	  	<jsfunit.version>2.0.0.Beta1</jsfunit.version>
@@ -128,7 +129,7 @@
 		        <dependency>
 		            <groupId>org.jboss.arquillian.container</groupId>
 		            <artifactId>arquillian-jbossas-managed-6</artifactId>
-		            <version>${arquillian.version}</version>
+		            <version>${arquillian.jboss.version}</version>
 		        </dependency>
 		        
 		        <dependency>
@@ -155,7 +156,7 @@
 		        <dependency>
 		            <groupId>org.jboss.arquillian.container</groupId>
 		            <artifactId>arquillian-jbossas-managed-6</artifactId>
-		            <version>${arquillian.version}</version>
+		            <version>${arquillian.jboss.version}</version>
 		        </dependency>
 		        <dependency>
 		            <groupId>org.jboss.jbossas</groupId>
@@ -169,9 +170,29 @@
 		            <type>pom</type>
 		        </dependency>
 	    	</dependencies>
-	    	
 		</profile>
 		
+        <profile>
+            <id>jbossas-remote-6</id>
+            <properties>
+                <skip.tests>true</skip.tests>
+            </properties>   
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-jbossas-remote-6</artifactId>
+                    <version>${arquillian.jboss.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.jbossas</groupId>
+                    <artifactId>jboss-as-profileservice-client</artifactId>
+                    <version>${jboss.version}</version>
+                    <type>pom</type>
+                </dependency>
+            </dependencies>
+            
+        </profile>
+
 		<profile>
 	      <id>jbossas-embedded-6</id>
 	      <properties>
@@ -234,6 +255,11 @@
 	         <artifactId>arquillian-junit-container</artifactId>
 	         <version>${arquillian.version}</version>
 	    </dependency>
+        <dependency>
+             <groupId>org.jboss.arquillian.protocol</groupId>
+             <artifactId>arquillian-protocol-servlet</artifactId>
+             <version>${arquillian.version}</version>
+        </dependency>
 		<dependency>
          	<groupId>org.jboss.arquillian.extension</groupId>
         	<artifactId>arquillian-extension-jacoco</artifactId>
