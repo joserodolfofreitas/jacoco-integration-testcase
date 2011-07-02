@@ -25,7 +25,7 @@
 		<target.dir>target</target.dir>
 		<excludeDefaultDirectories>true</excludeDefaultDirectories>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<version.jacoco>0.5.2.20110519202509</version.jacoco>
+		<version.jacoco>0.5.3-SNAPSHOT</version.jacoco>
 	</properties>
 	
 	
@@ -175,7 +175,7 @@
         <profile>
             <id>jbossas-remote-6</id>
             <properties>
-                <skip.tests>true</skip.tests>
+                <skip.tests>false</skip.tests>
             </properties>   
             <dependencies>
                 <dependency>
@@ -220,6 +220,32 @@
 	        </plugins>
 	      </build>
 	    </profile>
+        <profile>
+            <id>jacoco</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${version.jacoco}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>report</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 		<profile>
 	        <id>sonar</id>
 	        <activation>
