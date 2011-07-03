@@ -2,11 +2,10 @@ package og.jboss.arquillian.jacocointegration.dummy;
 
 import junit.framework.Assert;
 
-import og.jboss.arquillian.jacocointegration.dummy.DummyClass;
-
+import org.junit.Ignore;
 import org.junit.Test;
 
-
+@Ignore
 public class DummyClassJUnitTest {
 
     DummyClass dummyClass = new DummyClass();
