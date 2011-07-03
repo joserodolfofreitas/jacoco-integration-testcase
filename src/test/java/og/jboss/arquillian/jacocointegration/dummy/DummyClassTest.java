@@ -29,11 +29,10 @@ public class DummyClassTest {
         return war;
     }
 
-    /* @Test
+    @Test
     public void FailTest() {
         Assert.assertTrue(!dummyClass.fail());
-    }*/
-
+    }
 
     @Test
     public void getFooTest() {
