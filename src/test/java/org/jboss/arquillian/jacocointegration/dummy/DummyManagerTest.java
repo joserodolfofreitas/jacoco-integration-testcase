@@ -1,8 +1,10 @@
-package og.jboss.arquillian.jacocointegration.dummy;
+package org.jboss.arquillian.jacocointegration.dummy;
 
 import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.jacocointegration.dummy.DummyManager;
+import org.jboss.arquillian.jacocointegration.dummy.StatelessDummyManager;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;

@@ -1,7 +1,8 @@
-package og.jboss.arquillian.jacocointegration.dummy;
+package org.jboss.arquillian.jacocointegration.dummy;
 
 import junit.framework.Assert;
 
+import org.jboss.arquillian.jacocointegration.dummy.DummyClass;
 import org.junit.Ignore;
 import org.junit.Test;
 

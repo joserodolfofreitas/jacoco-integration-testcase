@@ -15,36 +15,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package og.jboss.arquillian.jacocointegration.dummy;
-
-import javax.ejb.Local;
-import javax.ejb.Stateless;
+package org.jboss.arquillian.jacocointegration.dummy;
 
 /**
- * StatelessDummyManager
+ * DummyManager
  *
  * @author <a href="mailto:aslak@redhat.com">Aslak Knutsen</a>
  * @version $Revision: $
  */
-@Stateless @Local(DummyManager.class)
-public class StatelessDummyManager implements DummyManager
+public interface DummyManager
 {
-   @Override
-   public void doComplicatedStuff()
-   {
-      boolean a = false;
-      for(int i = 0; i < 9; i++)
-      {
-         if(i > 6)
-         {
-            a = true;
-         }
-      }
-      if(a)
-      {
-         String value = String.valueOf(System.currentTimeMillis());
-         value.getBytes();
-      }
-   }
 
+   void doComplicatedStuff();
+   
 }

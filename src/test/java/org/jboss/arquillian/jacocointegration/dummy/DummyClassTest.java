@@ -1,11 +1,12 @@
-package og.jboss.arquillian.jacocointegration.dummy;
+package org.jboss.arquillian.jacocointegration.dummy;
 
 import javax.inject.Inject;
 
 import junit.framework.Assert;
-import og.jboss.arquillian.jacocointegration.test.utils.Deployments;
 
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.jacocointegration.dummy.DummyClass;
+import org.jboss.arquillian.jacocointegration.test.utils.Deployments;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;

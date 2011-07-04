@@ -1,4 +1,4 @@
-package og.jboss.arquillian.jacocointegration.dummy;
+package org.jboss.arquillian.jacocointegration.dummy;
 
 import javax.inject.Named;
 

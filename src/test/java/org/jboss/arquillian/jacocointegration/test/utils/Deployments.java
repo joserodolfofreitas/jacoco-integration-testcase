@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package og.jboss.arquillian.jacocointegration.test.utils;
+package org.jboss.arquillian.jacocointegration.test.utils;
 
 import java.io.File;
 
