@@ -5,14 +5,11 @@ import javax.inject.Inject;
 import junit.framework.Assert;
 
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.jacocointegration.dummy.DummyClass;
 import org.jboss.arquillian.jacocointegration.test.utils.Deployments;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-
 
 @RunWith(Arquillian.class)
 public class DummyClassTest {
@@ -26,7 +23,6 @@ public class DummyClassTest {
         WebArchive war = Deployments.createCDIDeployment();
         war.addClass(DummyClass.class);
 
-
         return war;
     }
 
@@ -35,8 +31,4 @@ public class DummyClassTest {
         Assert.assertTrue(!dummyClass.fail());
     }
 
-    @Test
-    public void getFooTest() {
-        Assert.assertEquals("foo", dummyClass.getFoo());
-    }
 }
