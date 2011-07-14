@@ -7,7 +7,7 @@
 	<name>jacoco-integration-testcase</name>
 	
 	<properties>
-	  	<arquillian.version>1.0.0.Final-SNAPSHOT</arquillian.version>
+	  	<arquillian.version>1.0.0.CR2</arquillian.version>
         <arquillian.jboss.version>1.0.0.CR1</arquillian.jboss.version>
 	  	<shrinkwrap.version>1.0.0-beta-3</shrinkwrap.version>
 	  	<jboss.version>6.0.0.Final</jboss.version>
@@ -25,7 +25,8 @@
 		<target.dir>target</target.dir>
 		<excludeDefaultDirectories>true</excludeDefaultDirectories>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<version.jacoco>0.5.2.20110519202509</version.jacoco>
+		<jacoco.version>0.5.2.20110519202509</jacoco.version>
+		<arquillian.jacoco.version>1.0.0.Alpha1</arquillian.jacoco.version>
 	</properties>
 	
 	
@@ -106,20 +107,7 @@
 	  </build>
 	
 	<profiles>
-		<profile>
-			<id>deploy</id>
-			<properties>
-				<target.dir>target-deploy</target.dir>
-				<excludeDefaultDirectories>false</excludeDefaultDirectories>
-			</properties>
-			<distributionManagement>
-				<repository>
-					<!-- <id>saj</id>
-					<url>http://server55:9090/artifactory/saj-comum-releases</url>  -->
-				</repository>
-			</distributionManagement>
-		</profile>
-		
+	
 		<profile>
 	    	<id>jbossas-managed-6</id>
 	    	<properties>
@@ -146,32 +134,7 @@
 		        
 		    </dependencies>
 		</profile>
-		
-		<profile>
-	    	<id>jbossas-managed-6-test-coverage</id>
-	    	<properties>
-	    		<skip.tests>false</skip.tests>
-	    	</properties>  	
-	   		<dependencies>
-		        <dependency>
-		            <groupId>org.jboss.arquillian.container</groupId>
-		            <artifactId>arquillian-jbossas-managed-6</artifactId>
-		            <version>${arquillian.jboss.version}</version>
-		        </dependency>
-		        <dependency>
-		            <groupId>org.jboss.jbossas</groupId>
-		            <artifactId>jboss-server-manager</artifactId>
-		            <version>${jboss.server.manager.version}</version>
-		        </dependency>
-		        <dependency>
-		            <groupId>org.jboss.jbossas</groupId>
-		            <artifactId>jboss-as-profileservice-client</artifactId>
-		            <version>${jboss.version}</version>
-		            <type>pom</type>
-		        </dependency>
-	    	</dependencies>
-		</profile>
-		
+			
         <profile>
             <id>jbossas-remote-6</id>
             <properties>
@@ -190,7 +153,6 @@
                     <type>pom</type>
                 </dependency>
             </dependencies>
-            
         </profile>
 
 		<profile>
@@ -227,7 +189,7 @@
                     <plugin>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>${version.jacoco}</version>
+                        <version>${jacoco.version}</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -267,54 +229,6 @@
 		
 		
 	</profiles>
-	
-	<dependencyManagement>
-	  <dependencies>
-		<dependency>
-	        <groupId>org.jboss.shrinkwrap</groupId>
-	        <artifactId>shrinkwrap-api</artifactId>
-	        <scope>test</scope>
-	        <version>${shrinkwrap.version}</version>
-		</dependency>
-		<dependency>
-	         <groupId>org.jboss.arquillian.junit</groupId>
-	         <artifactId>arquillian-junit-container</artifactId>
-	         <version>${arquillian.version}</version>
-	    </dependency>
-        <dependency>
-             <groupId>org.jboss.arquillian.protocol</groupId>
-             <artifactId>arquillian-protocol-servlet</artifactId>
-             <version>${arquillian.version}</version>
-        </dependency>
-		<dependency>
-         	<groupId>org.jboss.arquillian.extension</groupId>
-        	<artifactId>arquillian-extension-jacoco</artifactId>
-        	<scope>test</scope>	
-         	<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-		 <dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>org.jacoco.core</artifactId>
-            <version>${version.jacoco}</version>
-        </dependency>
-		
-		<dependency>
-	      	<groupId>org.jboss.jsfunit</groupId>
-	      	<artifactId>jboss-jsfunit-core</artifactId>
-	      	<scope>test</scope>
-	      	<version>${jsfunit.version}</version>
-	    </dependency>
-      	<dependency>
-	      	<groupId>org.jboss.jsfunit</groupId>
-	      	<artifactId>jsfunit-arquillian</artifactId>
-	      	<scope>test</scope>
-	      	<version>${jsfunit.version}</version>
-	  	</dependency>
-	  	
-	    
-	  </dependencies>
-	</dependencyManagement>
-	
 
 	<dependencies>
 	
@@ -334,23 +248,28 @@
 	    </dependency>
 	
 		<dependency>
-         	<groupId>org.jboss.arquillian.extension</groupId>
-        	<artifactId>arquillian-extension-jacoco</artifactId>
-        	<scope>test</scope>	
-		</dependency>
-
-		<dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>org.jacoco.core</artifactId>
-        </dependency>
-		<dependency>
-	        <groupId>org.jboss.shrinkwrap</groupId>
-	        <artifactId>shrinkwrap-api</artifactId>
-		</dependency>
-		<dependency>
 	         <groupId>org.jboss.arquillian.junit</groupId>
 	         <artifactId>arquillian-junit-container</artifactId>
+	         <version>${arquillian.version}</version>
+	    </dependency>
+	    
+	    <dependency>
+             <groupId>org.jboss.arquillian.protocol</groupId>
+             <artifactId>arquillian-protocol-servlet</artifactId>
+             <version>${arquillian.version}</version>
+        </dependency>
+        
+		<dependency>
+         	<groupId>org.jboss.arquillian.extension</groupId>
+        	<artifactId>arquillian-jacoco</artifactId>
+        	<scope>test</scope>	
+         	<version>${arquillian.jacoco.version}</version>
 		</dependency>
+		 <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>org.jacoco.core</artifactId>
+            <version>${jacoco.version}</version>
+        </dependency>
 		
 	    <dependency>
 	    	<groupId>asm</groupId>

@@ -28,7 +28,6 @@ import org.jboss.shrinkwrap.descriptor.api.Descriptors;
 import org.jboss.shrinkwrap.descriptor.api.spec.servlet.web.WebAppDescriptor;
 
 public class Deployments {
-    public static final String COBERTURA_JAR = "net.sourceforge.cobertura:cobertura:1.9.4.1";
 
     public static WebArchive createCDIDeployment() {
 
@@ -67,7 +66,7 @@ public class Deployments {
     }
 
     private static void appendBaseWebXML(WebAppDescriptor desc) {
-        desc.displayName("Zion Faces TestCase")
+        desc.displayName("Arquillian Jacoco Integration TestCase")
         .welcomeFile("index.xhtml")
         .servlet("javax.faces.webapp.FacesServlet", "*.xhtml").loadOnStartup(1);
     }
