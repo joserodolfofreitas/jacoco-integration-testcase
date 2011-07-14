@@ -7,8 +7,8 @@
 	<name>jacoco-integration-testcase</name>
 	
 	<properties>
-	  	<arquillian.version>1.0.0.CR2</arquillian.version>
-        <arquillian.jboss.version>1.0.0.CR1</arquillian.jboss.version>
+		<arquillian.version>1.0.0.CR2</arquillian.version>
+		<arquillian.jboss.version>1.0.0.CR1</arquillian.jboss.version>
 	  	<shrinkwrap.version>1.0.0-beta-3</shrinkwrap.version>
 	  	<jboss.version>6.0.0.Final</jboss.version>
 	  	<jsfunit.version>2.0.0.Beta1</jsfunit.version>
@@ -25,7 +25,7 @@
 		<target.dir>target</target.dir>
 		<excludeDefaultDirectories>true</excludeDefaultDirectories>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jacoco.version>0.5.2.20110519202509</jacoco.version>
+		<jacoco.version>0.5.3.201107060350</jacoco.version>
 		<arquillian.jacoco.version>1.0.0.Alpha1</arquillian.jacoco.version>
 	</properties>
 	
@@ -45,20 +45,7 @@
             <updatePolicy>never</updatePolicy>
           </snapshots>
         </repository>
-		
-		 <repository>
-            <!-- for jacoco -->
-            <id>sonar</id>
-            <name>Sonar</name>
-            <url>http://repository.sonarsource.org/content/repositories/sonar</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-		
+				
 		<repository>
 			<id>jboss-deprecated</id>
           	<name>JBoss deprecated -remove me soon-</name>
